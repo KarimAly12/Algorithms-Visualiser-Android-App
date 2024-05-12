@@ -15,20 +15,35 @@ enum class Orientation{
 }
 
 
+val HORIZONTAL = Orientation.HORIZONTAL
+val VERTICAL = Orientation.VERTICAL
+
+
+
+
+
+
 suspend fun RecusiveDivision(squareList: List<List<Square>>, x: Int, y: Int , width: Int , height: Int ){
 
-    if(width <= 2 || height <= 2) return
+    if(width <= 2 || height  <= 2) return
+
+    //if(y + 1 == height-2 || x+1 == width -2 || y+1 > height-2 || x+1 > width-2) return
+
 
     val orientation = if(height > width) Orientation.HORIZONTAL else Orientation.VERTICAL
 
-    val wp = if(orientation == Orientation.HORIZONTAL)  Random.nextInt( y+1,height-2 ) else Random.nextInt( x + 1,width-2)
+
+
+
+    //Log.i("test", width.toString() + " " + height.toString()+ " " + y.toString() + " "+ x.toString())
+    val wp = if(orientation == Orientation.HORIZONTAL)   Random.nextInt(y+1, height-2 ) else x + Random.nextInt(y+1, width-2)
 
     val length = if(orientation == Orientation.HORIZONTAL) width else height
 
     if(orientation == Orientation.HORIZONTAL){
         for( i in x.. width){
-            Log.i("test", i.toString())
             squareList[wp][i].squareType.value = SquareTypes.Wall
+
             delay(50)
         }
     }else{
@@ -42,15 +57,15 @@ suspend fun RecusiveDivision(squareList: List<List<Square>>, x: Int, y: Int , wi
     var nx = x
     var ny = y
     var nw = if(orientation == Orientation.HORIZONTAL) width else wp-x
-    var nh = if(orientation == Orientation.HORIZONTAL) wp - y else height
+    var nh = if(orientation == Orientation.HORIZONTAL) wp- y else height
 
     RecusiveDivision(squareList, nx, ny, nw, nh)
 
 
     nx = if(orientation == Orientation.HORIZONTAL) x else wp+1
-    ny = if (orientation == Orientation.HORIZONTAL) wp + 1 else y
-    nw = if(orientation == Orientation.HORIZONTAL) width else width - wp
-    nh = if(orientation == Orientation.HORIZONTAL) height - wp else height
+    ny = if (orientation == Orientation.HORIZONTAL) wp+1 else y
+    nw = if(orientation == Orientation.HORIZONTAL) width else (width-wp)
+    nh = if(orientation == Orientation.HORIZONTAL) (height-wp) else height
 
     RecusiveDivision(squareList, nx, ny, nw, nh)
 

@@ -36,7 +36,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.algorithmvisualiser.MazeAlgorithms.Orientation
 import com.example.algorithmvisualiser.MazeAlgorithms.RecusiveDivision
+import com.example.algorithmvisualiser.MazeAlgorithms.divide
 import com.example.algorithmvisualiser.searchAlgorithms.SearchViewModel
 import kotlinx.coroutines.launch
 
