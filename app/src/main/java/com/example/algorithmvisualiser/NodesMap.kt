@@ -143,40 +143,40 @@ fun NodeSquare(
             .clickable {
 
 
-                searchViewModel.apply {
-
-                    if(selectedNodeType.value == SquareTypes.Goal){
-
-                        if(currentGoal.value != null){
-                            if (square.position != currentGoal.value!!.position){
-                                squareList[currentGoal.value!!.position.first][currentGoal.value!!.position.second].squareType.value = SquareTypes.Air
-
-                            }
-                        }
-                        currentGoal.value = square
-                        square.squareType.value = SquareTypes.Goal
-
-                    }else if(selectedNodeType.value == SquareTypes.Start){
-                        if(currentStart.value != null){
-                            if (square.position != currentStart.value!!.position){
-                                squareList[currentStart.value!!.position.first][currentStart.value!!.position.second].squareType.value = SquareTypes.Air
-
-                            }
-                        }
-                        currentStart.value = square
-                        square.squareType.value = SquareTypes.Start
-
-                    } else{
-
-                        if(square.squareType.value != SquareTypes.Goal && square.squareType.value != SquareTypes.Start){
-                            square.squareType.value = selectedNodeType.value
-
-                        }
-
-                    }
-
-
-                }
+//                searchViewModel.apply {
+//
+//                    if(selectedNodeType.value == SquareTypes.Goal){
+//
+//                        if(currentGoal.value != null){
+//                            if (square.position != currentGoal.value!!.position){
+//                                squareList[currentGoal.value!!.position.first][currentGoal.value!!.position.second].squareType.value = SquareTypes.Air
+//
+//                            }
+//                        }
+//                        currentGoal.value = square
+//                        square.squareType.value = SquareTypes.Goal
+//
+//                    }else if(selectedNodeType.value == SquareTypes.Start){
+//                        if(currentStart.value != null){
+//                            if (square.position != currentStart.value!!.position){
+//                                squareList[currentStart.value!!.position.first][currentStart.value!!.position.second].squareType.value = SquareTypes.Air
+//
+//                            }
+//                        }
+//                        currentStart.value = square
+//                        square.squareType.value = SquareTypes.Start
+//
+//                    } else{
+//
+//                        if(square.squareType.value != SquareTypes.Goal && square.squareType.value != SquareTypes.Start){
+//                            square.squareType.value = selectedNodeType.value
+//
+//                        }
+//
+//                    }
+//
+//
+//                }
 
 
             }

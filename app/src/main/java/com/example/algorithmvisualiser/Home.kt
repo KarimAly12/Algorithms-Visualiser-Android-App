@@ -36,6 +36,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.algorithmvisualiser.MazeAlgorithms.RecusiveDivision
 import com.example.algorithmvisualiser.searchAlgorithms.SearchViewModel
 import kotlinx.coroutines.launch
 
@@ -175,23 +176,27 @@ fun Home(searchViewModel: SearchViewModel = hiltViewModel()){
             floatingActionButton = {
                 FloatingActionButton(onClick = {
 
-                    if(!searchViewModel.searchStarted){
-                        searchViewModel.reset()
-
-                        searchViewModel.searchStarted = true
-
-                        if(searchViewModel.selectedSearchType.value == BREADTH_FIRST_SEARCH){
-                            searchViewModel.breadthFirstSearch()
-                        }else if(searchViewModel.selectedSearchType.value == GREEDY_BEST_FIRST_SEARCH){
-                            searchViewModel.greedyBestFirstSearch()
-                        }else if(searchViewModel.selectedSearchType.value == DEPTH_FIRST_SEARCH){
-                            searchViewModel.depthFirstSearch()
-                        }else if (searchViewModel.selectedSearchType.value == ASTAR_SEARCH){
-                            searchViewModel.aStarSearch()
-                        }
-
+                    scope.launch {
+                        RecusiveDivision(searchViewModel.squareList, 0 , 0, 11, 19)
 
                     }
+//                    if(!searchViewModel.searchStarted){
+//                        searchViewModel.reset()
+//
+//                        searchViewModel.searchStarted = true
+//
+//                        if(searchViewModel.selectedSearchType.value == BREADTH_FIRST_SEARCH){
+//                            searchViewModel.breadthFirstSearch()
+//                        }else if(searchViewModel.selectedSearchType.value == GREEDY_BEST_FIRST_SEARCH){
+//                            searchViewModel.greedyBestFirstSearch()
+//                        }else if(searchViewModel.selectedSearchType.value == DEPTH_FIRST_SEARCH){
+//                            searchViewModel.depthFirstSearch()
+//                        }else if (searchViewModel.selectedSearchType.value == ASTAR_SEARCH){
+//                            searchViewModel.aStarSearch()
+//                        }
+//
+//
+//                    }
 
 
                 }) {
