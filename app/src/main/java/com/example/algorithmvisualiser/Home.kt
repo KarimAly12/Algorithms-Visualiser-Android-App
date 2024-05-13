@@ -38,7 +38,6 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.algorithmvisualiser.MazeAlgorithms.Orientation
 import com.example.algorithmvisualiser.MazeAlgorithms.RecusiveDivision
-import com.example.algorithmvisualiser.MazeAlgorithms.divide
 import com.example.algorithmvisualiser.searchAlgorithms.SearchViewModel
 import kotlinx.coroutines.launch
 
@@ -179,7 +178,7 @@ fun Home(searchViewModel: SearchViewModel = hiltViewModel()){
                 FloatingActionButton(onClick = {
 
                     scope.launch {
-                        RecusiveDivision(searchViewModel.squareList, 0 , 0, 11, 19)
+                        RecusiveDivision(searchViewModel.squareList, 0 , 0, 12, 20)
 
                     }
 //                    if(!searchViewModel.searchStarted){

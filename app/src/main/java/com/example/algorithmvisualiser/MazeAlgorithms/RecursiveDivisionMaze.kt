@@ -36,7 +36,7 @@ suspend fun RecusiveDivision(squareList: List<List<Square>>, x: Int, y: Int , wi
 
 
     //Log.i("test", width.toString() + " " + height.toString()+ " " + y.toString() + " "+ x.toString())
-    val wp = if(orientation == Orientation.HORIZONTAL)   Random.nextInt(y+1, height-2 ) else x + Random.nextInt(y+1, width-2)
+    val wp = if(orientation == Orientation.HORIZONTAL) y +  Random.nextInt( height-2 ) else x + Random.nextInt(if (width ==2) 1 else width-2)
 
     val length = if(orientation == Orientation.HORIZONTAL) width else height
 
