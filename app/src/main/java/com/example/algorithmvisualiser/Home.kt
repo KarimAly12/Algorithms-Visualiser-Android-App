@@ -177,27 +177,27 @@ fun Home(searchViewModel: SearchViewModel = hiltViewModel()){
             floatingActionButton = {
                 FloatingActionButton(onClick = {
 
-                    scope.launch {
-                        RecusiveDivision(searchViewModel.squareList, 0 , 0, 12, 20)
-
-                    }
-//                    if(!searchViewModel.searchStarted){
-//                        searchViewModel.reset()
-//
-//                        searchViewModel.searchStarted = true
-//
-//                        if(searchViewModel.selectedSearchType.value == BREADTH_FIRST_SEARCH){
-//                            searchViewModel.breadthFirstSearch()
-//                        }else if(searchViewModel.selectedSearchType.value == GREEDY_BEST_FIRST_SEARCH){
-//                            searchViewModel.greedyBestFirstSearch()
-//                        }else if(searchViewModel.selectedSearchType.value == DEPTH_FIRST_SEARCH){
-//                            searchViewModel.depthFirstSearch()
-//                        }else if (searchViewModel.selectedSearchType.value == ASTAR_SEARCH){
-//                            searchViewModel.aStarSearch()
-//                        }
-//
+//                    scope.launch {
+//                        RecusiveDivision(searchViewModel.squareList, 0 , 0, 12, 20)
 //
 //                    }
+                    if(!searchViewModel.searchStarted){
+                        searchViewModel.reset()
+
+                        searchViewModel.searchStarted = true
+
+                        if(searchViewModel.selectedSearchType.value == BREADTH_FIRST_SEARCH){
+                            searchViewModel.breadthFirstSearch()
+                        }else if(searchViewModel.selectedSearchType.value == GREEDY_BEST_FIRST_SEARCH){
+                            searchViewModel.greedyBestFirstSearch()
+                        }else if(searchViewModel.selectedSearchType.value == DEPTH_FIRST_SEARCH){
+                            searchViewModel.depthFirstSearch()
+                        }else if (searchViewModel.selectedSearchType.value == ASTAR_SEARCH){
+                            searchViewModel.aStarSearch()
+                        }
+
+
+                    }
 
 
                 }) {
